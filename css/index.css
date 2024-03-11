@@ -1,0 +1,35 @@
+#logo{
+    width: 200px;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+}
+.container{
+    width: 80%;
+    margin:0 auto;
+}
+.barras_menu{
+    display: none;
+}
+.estilo_menu{
+list-style: none;
+}
+.estilo_menu{
+text-decoration: none;
+display: block;
+margin: 10px;
+font-size: 20px;
+}
+@media screen and (max-width: 376px) {
+    h1{
+        display: none;
+    }
+    header{
+        justify-content: space-around;
+    }
+    .menu_movil{
+        display: none;
+    }
+    
+}
