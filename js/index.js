@@ -1,12 +1,13 @@
 window.onload=()=>{
-    let menu=document.getElementById("barras_menu");
+
+    let menu=document.getElementById("barras-menu");
 
     menu.onclick=()=>{
-        if(document.getElementById("menu_movil").classList.contains("menu_movil")){
-            document.getElementById("menu_movil").classList.remove("menu_movil")
+        
+        if(document.getElementById("menu-movil").classList.contains("menu-movil")){
+            document.getElementById("menu-movil").classList.remove("menu-movil");
         }else{
-            document.getElementById("menu_movil").classList.add("menu_movil")
+            document.getElementById("menu-movil").classList.add("menu-movil");
         }
-
     }
 }
