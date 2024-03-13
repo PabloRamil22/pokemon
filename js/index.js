@@ -129,3 +129,6 @@ function mostarDatosIniciales(listaPk) {
     }
     document.getElementById("containerpk").innerHTML = contenidoPK;
 }
+
+
+
