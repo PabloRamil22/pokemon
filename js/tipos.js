@@ -1,7 +1,7 @@
 window.onload = () => {
     const pokemonList = document.getElementById('pokemonList');
 
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=151') // Seleccionamos solo los primeros 151 Pokémon por simplicidad
+    fetch('https://pokeapi.co/api/v2/pokemon?limit=500') // Seleccionamos solo los primeros 151 Pokémon por simplicidad
         .then(response => response.json())
         .then(data => {
             const results = data.results;
@@ -33,7 +33,7 @@ window.onload = () => {
         image.style.display = 'none'; // Ocultar la imagen inicialmente
 
         const typeParagraph = document.createElement('p');
-        typeParagraph.textContent = `Types: ${data.types.map(type => type.type.name).join(', ')}`;
+        typeParagraph.textContent = `Tipo: ${data.types.map(type => type.type.name).join(', ')}`;
         typeParagraph.style.display = 'none'; // Ocultar los tipos inicialmente
 
         name.addEventListener('click', () => {
