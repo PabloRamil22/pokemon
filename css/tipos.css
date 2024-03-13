@@ -1,0 +1,34 @@
+body {
+    font-family: fantasy;
+}
+
+#container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+#pokemonList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.card h3 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.card p {
+    margin-bottom: 5px;
+}

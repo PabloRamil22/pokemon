@@ -50,11 +50,8 @@ window.onload = () => {
             document.getElementById(pokemonName).style.display = 'block';
         });
     });
-    
-
-
-
 }
+
 
 
 function getDataUrl(url) {
@@ -158,6 +155,7 @@ function mostarDatosIniciales(listaPk) {
     }
     document.getElementById("containerpk").innerHTML = contenidoPK;
 }
+
 
 
 
