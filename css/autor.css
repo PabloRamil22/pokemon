@@ -43,3 +43,9 @@ footer {
     text-align: center;
     padding: 10px 0;
 }
+
+#volverbtn {
+    position: absolute; /* Establece la posición absoluta */
+    left: 20px; /* Ajusta la distancia desde el borde izquierdo */
+    top: 20px; /* Ajusta la distancia desde el borde superior */
+}

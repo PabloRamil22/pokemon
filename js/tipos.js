@@ -1,6 +1,12 @@
 window.onload = () => {
     const pokemonList = document.getElementById('pokemonList');
+    const volverbtn = document.getElementById('volverbtn');
 
+    
+    volverbtn.addEventListener('click', () => {
+        window.location.href = 'index.html';
+    });
+    
     fetch('https://pokeapi.co/api/v2/pokemon?limit=500') // Seleccionamos solo los primeros 151 Pokémon por simplicidad
         .then(response => response.json())
         .then(data => {
