@@ -2,24 +2,17 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
+    font-family: 'Pokemon', sans-serif; /* Cambiamos la fuente a una similar a la de Pokémon */
+    background-color: #f0f0f0; /* Cambiamos el color de fondo a uno más claro */
 }
 
 /* Estilos para el encabezado */
 header {
-    background-color: #333;
-    color: #fff;
+    font-family: fantasy;
+    background-color: #a0e500; /* Rojo característico de Pokémon */
+    color: #ffffff;
     padding: 20px;
     text-align: center;
-}
-
-/* Estilos para la imagen del creador */
-.creador-imagen {
-    width: 200px;
-    display: block;
-    margin: 0 auto;
-    border-radius: 50%;
 }
 
 /* Estilos para el contenedor */
@@ -31,6 +24,7 @@ header {
 .biography {
     text-align: justify;
     line-height: 1.6;
+    color: #333; /* Cambiamos el color del texto a uno más oscuro */
 }
 
 /* Estilos para el footer */
@@ -38,14 +32,29 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: #333;
+    background-color: black; /* Rojo característico de Pokémon */
     color: #fff;
     text-align: center;
     padding: 10px 0;
 }
 
+/* Estilos para el botón "Volver" */
 #volverbtn {
-    position: absolute; /* Establece la posición absoluta */
-    left: 20px; /* Ajusta la distancia desde el borde izquierdo */
-    top: 20px; /* Ajusta la distancia desde el borde superior */
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    background-color: #ffcb05; /* Amarillo característico de Pokémon */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#volverbtn:hover {
+    background-color: #ffea00; /* Cambiamos el color de fondo al pasar el cursor por encima */
+    transform: scale(1.05); /* Ajustamos el tamaño al pasar el cursor por encima */
 }

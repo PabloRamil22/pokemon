@@ -1,62 +1,76 @@
 window.onload = () => {
-    const pokemonList = document.getElementById('pokemonList');
+
     const volverbtn = document.getElementById('volverbtn');
 
-    
+
     volverbtn.addEventListener('click', () => {
-        window.location.href = 'index.html';
+    window.location.href = 'index.html';
     });
-    
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=500') // Seleccionamos solo los primeros 151 Pokémon por simplicidad
-        .then(response => response.json())
-        .then(data => {
-            const results = data.results;
-            results.forEach(pokemon => {
-                fetchPokemonData(pokemon);
-            });
-        })
-        .catch(error => console.log(error));
+}
 
-    function fetchPokemonData(pokemon) {
-        fetch(pokemon.url)
-            .then(response => response.json())
-            .then(data => {
-                displayPokemon(data);
-            })
-            .catch(error => console.log(error));
-    }
 
-    function displayPokemon(data) {
-        const card = document.createElement('div');
-        card.classList.add('card');
-
-        const name = document.createElement('h3');
-        name.textContent = data.name.toUpperCase();
-
-        const image = document.createElement('img');
-        image.src = data.sprites.front_default;
-        image.alt = data.name;
-        image.style.display = 'none'; // Ocultar la imagen inicialmente
-
-        const typeParagraph = document.createElement('p');
-        typeParagraph.textContent = `Tipo: ${data.types.map(type => type.type.name).join(', ')}`;
-        typeParagraph.style.display = 'none'; // Ocultar los tipos inicialmente
-
-        name.addEventListener('click', () => {
-            // Alternar la visualización de la imagen y los tipos
-            if (image.style.display === 'none') {
-                image.style.display = 'block';
-                typeParagraph.style.display = 'block';
-            } else {
-                image.style.display = 'none';
-                typeParagraph.style.display = 'none';
-            }
+document.addEventListener("DOMContentLoaded", function() {
+    const typesContainer = document.getElementById("types");
+    const pokemonListContainer = document.getElementById("pokemon-list");
+  
+    // Function to fetch all Pokémon types
+    async function fetchPokemonTypes() {
+      try {
+        const response = await fetch("https://pokeapi.co/api/v2/type");
+        const data = await response.json();
+        const types = data.results;
+  
+        types.forEach(type => {
+          const typeElement = document.createElement("div");
+          typeElement.classList.add("type");
+          typeElement.textContent = type.name;
+          typeElement.addEventListener("click", () => {
+            fetchPokemonByType(type.name);
+          });
+          typesContainer.appendChild(typeElement);
         });
-
-        card.appendChild(name);
-        card.appendChild(image);
-        card.appendChild(typeParagraph);
-        pokemonList.appendChild(card);
+      } catch (error) {
+        console.error("Error fetching Pokémon types:", error);
+      }
     }
-};
-
+  
+    // Function to fetch Pokémon by type
+    async function fetchPokemonByType(type) {
+      try {
+        const response = await fetch(`https://pokeapi.co/api/v2/type/${type}`);
+        const data = await response.json();
+        const pokemon = data.pokemon;
+  
+        pokemonListContainer.innerHTML = "";
+  
+        pokemon.forEach(entry => {
+          const pokemonName = entry.pokemon.name;
+          const pokemonURL = entry.pokemon.url;
+  
+          fetch(pokemonURL)
+            .then(response => response.json())
+            .then(pokemonData => {
+              const pokemonElement = document.createElement("div");
+              pokemonElement.classList.add("pokemon");
+  
+              const nameElement = document.createElement("p");
+              nameElement.textContent = pokemonName;
+  
+              const imageElement = document.createElement("img");
+              imageElement.src = pokemonData.sprites.front_default;
+              imageElement.alt = pokemonName;
+  
+              pokemonElement.appendChild(nameElement);
+              pokemonElement.appendChild(imageElement);
+              pokemonListContainer.appendChild(pokemonElement);
+            });
+        });
+      } catch (error) {
+        console.error(`Error fetching Pokémon of type ${type}:`, error);
+      }
+    }
+  
+    // Fetch Pokémon types when the page loads
+    fetchPokemonTypes();
+  });
+  
