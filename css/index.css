@@ -91,6 +91,36 @@ body {
     cursor: pointer;
 }
 
+
+/* Estilos para la barra de búsqueda */
+input[type="text"] {
+    width: 200px;
+    padding: 10px;
+    border: 2px solid #ffcb05;
+    border-radius: 20px 0 0 20px;
+    outline: none;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Estilos para el botón de búsqueda */
+#searchButton {
+    padding: 10px 20px;
+    background-color: #ffcb05;
+    color: #000;
+    border: none;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    transition: background-color 0.3s;
+}
+
+#searchButton:hover {
+    background-color: #ffea00;
+}
+
+
 /* Media query para tamaños de pantalla más pequeños donde quieres ocultar el h1 */
 @media screen and (max-width: 376px) {
     .barras-menu{
