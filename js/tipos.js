@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
           typeElement.classList.add("type");
           typeElement.textContent = type.name;
           typeElement.addEventListener("click", () => {
-            fetchPokemonByType(type.name);
+            fetchPokemonporTipo(type.name);
           });
           typesContainer.appendChild(typeElement);
         });
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   
     // Function to fetch Pokémon by type
-    async function fetchPokemonByType(type) {
+    async function fetchPokemonporTipo(type) {
       try {
         const response = await fetch(`https://pokeapi.co/api/v2/type/${type}`);
         const data = await response.json();
